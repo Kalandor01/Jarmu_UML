@@ -1,26 +1,41 @@
 package modell;
 public abstract class Jarmu {
-    private boolean beinditva;
-    private boolean uzemanyag;
-    private boolean megerkezett;
+    protected boolean beinditva = false;
+    protected boolean uzemanyag = true;
+    protected boolean megerkezett = false;
     
     public void beindit()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!beinditva)
+        {
+            beinditva = true;
+        }
     }
     
     public void leallit()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(beinditva)
+        {
+            beinditva = false;
+        }
     }
     
     public boolean tankol()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!beinditva && !uzemanyag)
+        {
+            uzemanyag = true;
+        }
+        return uzemanyag;
     }
     
     public boolean halad()
     {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(!megerkezett && uzemanyag && beinditva)
+        {
+            megerkezett = true;
+            uzemanyag = false;
+        }
+        return megerkezett;
     }
 }
