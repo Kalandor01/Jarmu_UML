@@ -24,11 +24,12 @@ public class Auto extends Jarmu{
         return megerkezett;
     }
     
-    public void kereketCserel()
+    public boolean kereketCserel()
     {
         if(defekt)
         {
             defekt = false;
         }
+        return  !defekt;
     }
 }
